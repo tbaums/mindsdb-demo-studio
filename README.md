@@ -1,4 +1,11 @@
 # mindsdb-demo-studio
+Author: Michael Tanenbaum 
+
+This repository provides a Docker Compose file for launching a MindsDB demo environment that includes MindsDB, RedPanda, Cassandra, and Postgres.
+
+The intention of this demo platform is to provide a **quick** and **reliable** way to launch a MindsDB demo environment that includes a variety of data sources and sinks. 
+
+These demonstrations are intended to be delivered by technical sales/field engineering teams to prospects and customers. This is not intended for production use.
 
 # Docker Compose File
 
@@ -25,14 +32,16 @@ Because this is designed to be a quick way to launch demos for MindsDB, each ser
 
 1. Clone this repo and navigate to the repo directory
 2. Run: `docker-compose up -d`
-3. Navigate to http://localhost:47344
+3. Navigate to http://localhost:47334
 
 
 # How to uninstall/clean up the MindsDB Docker Desktop Extension
 
-This demo provides its own copy of the MindsDB Studio container, integrated into the Docker bridge network `demo-network` that all the other data services also use.
+This demo provides its own copy of the MindsDB Studio container, integrated into the Docker bridge network `demo-network` that all the other data services in this demo also use.
 
-If you installed the MindsDB Docker Desktop Extension, there are some additional steps to remove the artifacts Docker Desktop installs as long-running services for you.
+If you installed the MindsDB Docker Desktop Extension, you will have port conflict with the MindsDB container provided here **even if Docker Desktop and `docker ps -a` show no running containers**! Uninstalling the extension from the Docker Desktop leaves a Docker Nework service running that includes a MindsDB container bound to port 47334. 
+
+Below are the steps for removing these artifacts. 
 
 ## Steps
 1. Uninstall the MindsDB Docker Desktop extension from Docker Desktop UI.
