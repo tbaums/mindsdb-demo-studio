@@ -1,4 +1,4 @@
-# mindsdb-demo-studio
+# MindsDB Demo Studio
 Author: Michael Tanenbaum 
 License: Apache 2.0
 
@@ -22,9 +22,28 @@ This Docker Compose file includes the following services:
 
 Each service has connectivity to each other over named networks.
 
-## Ports
+
+## FQDN and Endpoints
 
 Where possible, default ports have been preserved.
+
+Each service can be accessed using the following Fully Qualified Domain Names (FQDN) and endpoints:
+
+- **MindsDB**
+    - FQDN: `mindsdb.local`
+    - Endpoint: `http://mindsdb.local:47334`
+
+- **RedPanda**
+    - FQDN: `redpanda.local`
+    - Endpoint: `http://redpanda.local:9092`
+
+- **Cassandra**
+    - FQDN: `cassandra.local`
+    - Endpoint: `http://cassandra.local:9042`
+
+- **Postgres**
+    - FQDN: `postgres.local`
+    - Endpoint: `http://postgres.local:5432`
 
 ## Persistence
 
