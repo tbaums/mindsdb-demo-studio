@@ -1,0 +1,49 @@
+# Docker Compose file for MindsDB Demo Studio
+# See https://github.com/tbaums/mindsdb-demo-studio
+
+
+services:
+  mindsdb:
+    image: mindsdb/mindsdb
+    ports:
+      - "47334:47334"
+    networks:
+      - demo-network
+
+  redpanda:
+    image: vectorized/redpanda
+    ports:
+      - "9092:9092"
+    command:
+      - redpanda
+      - start
+      - --overprovisioned
+      - --smp 1
+      - --memory 1G
+      - --reserve-memory 0M
+      - --node-id 0
+      - --check=false
+    networks:
+      - demo-network
+
+  cassandra:
+    image: cassandra:latest
+    ports:
+      - "9042:9042"
+    networks:
+      - demo-network
+
+  postgres:
+    image: postgres:latest
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: demo
+    ports:
+      - "5432:5432"
+    networks:
+      - demo-network
+
+networks:
+  demo-network:
+    driver: bridge
