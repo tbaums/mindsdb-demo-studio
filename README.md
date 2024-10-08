@@ -1,9 +1,12 @@
 # mindsdb-demo-studio
 Author: Michael Tanenbaum 
+License: Apache 2.0
 
 This repository provides a Docker Compose file for launching a MindsDB demo environment that includes MindsDB, RedPanda, Cassandra, and Postgres.
 
 The intention of this demo platform is to provide a **quick** and **reliable** way to launch a MindsDB demo environment that includes a variety of data sources and sinks. 
+
+MindsDB Demo Studio will include end-to-end examples that include front-end applications designed to illustrate how projects using MindsDB can be integrated into customer operational environments and workflows. For example, the MindsDB Demo Studio will include a simple web application that demonstrates how to use MindsDB to deliver RAG capabilities to internal teams. 
 
 These demonstrations are intended to be delivered by technical sales/field engineering teams to prospects and customers. This is not intended for production use.
 
