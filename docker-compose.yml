@@ -1,7 +1,6 @@
 # Docker Compose file for MindsDB Demo Studio
 # See https://github.com/tbaums/mindsdb-demo-studio
 
-
 services:
   mindsdb:
     container_name: mindsdb
@@ -9,7 +8,7 @@ services:
     ports:
       - "47334:47334"
     networks:
-      - demo-network
+      - demo
 
   redpanda:
     container_name: redpanda
@@ -26,7 +25,7 @@ services:
       - --node-id 0
       - --check=false
     networks:
-      - demo-network
+      - demo
 
   cassandra:
     container_name: cassandra
@@ -34,7 +33,7 @@ services:
     ports:
       - "9042:9042"
     networks:
-      - demo-network
+      - demo
 
   postgres:
     container_name: postgres
@@ -46,8 +45,16 @@ services:
     ports:
       - "5432:5432"
     networks:
-      - demo-network
+      - demo
+  
+  ollama:
+    container_name: ollama
+    image: ollama/ollama
+    ports:
+      - "11434:11434"
+    networks:
+      - demo
 
 networks:
-  demo-network:
+  demo:
     driver: bridge
